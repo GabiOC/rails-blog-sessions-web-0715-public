@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.all
   end
 
   def show
+    @post = Post.find_by(params[:id])
   end
 
   def new

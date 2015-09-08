@@ -11,7 +11,7 @@ describe 'user signup', :type => :feature do
     signup_invalid
   end
 
-  it 'remains logged in after signing up' do 
+  it 'remains logged in after signing up' do
     signup_valid
     click_link('New Post')
     expect(page).to have_content("#{@kitten.name}")
@@ -40,7 +40,7 @@ describe 'user login', :type => :feature do
   end
 end
 
-describe 'user authorization before certain actions' do 
+describe 'user authorization before certain actions' do
   it 'cannot click edit link' do
     @post = @crookshanks.posts.create(name: "post title", content: "post content")
     visit '/'
@@ -61,7 +61,7 @@ describe 'user authorization before certain actions' do
     expect(page).to have_no_content('New Post')
   end
 
-  it 'cannot click new comment link' do 
+  it 'cannot click new comment link' do
     @post = @crookshanks.posts.create(name: "post title", content: "post content")
     visit '/'
     click_link('post title')
